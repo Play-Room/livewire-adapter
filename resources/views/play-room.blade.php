@@ -3,7 +3,7 @@
 @endphp
 
 @once
-    @vite('packages/livewire-play-room/resources/js/playroom-init.js')
+    @vite('vendor/playroom/livewire-adapter/resources/js/playroom-init.js')
 @endonce
 
 <div x-data="{{ $playRoomAlpineId }}" class="{{ $this->playRoomWrapperClass }}">

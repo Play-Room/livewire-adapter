@@ -10,25 +10,38 @@ Laravel package that exposes PlayRoom as a Livewire 4 component.
 
 ## Installation
 
-Require the package with Composer:
+Require the package:
 
 ```bash
-composer require playroom/livewire-adapter:^1.0
+composer require playroom/livewire-adapter
 ```
 
 Laravel package discovery will register `PlayRoom\\LivewirePlayRoom\\LivewirePlayRoomServiceProvider` automatically.
+
+Add the package JavaScript entry to your application's `vite.config.js` inputs so Laravel Vite includes it in the manifest:
+
+```js
+laravel({
+    input: [
+        'resources/css/app.css',
+        'resources/js/app.js',
+        'vendor/playroom/livewire-adapter/resources/js/playroom-init.js',
+    ],
+    refresh: true,
+})
+```
 
 ## Usage
 
 Render the component in Blade:
 
-```blade
+```php
 <livewire:play-room />
 ```
 
 Or mount it directly with custom options:
 
-```blade
+```php
 @livewire(\PlayRoom\LivewirePlayRoom\LivewirePlayRoom::class, [
     'playRoomLocale' => 'en',
     'playRoomTheme' => 'light',
@@ -61,6 +74,7 @@ Or mount it directly with custom options:
 
 ## Notes
 
-- The package loads the `packages/livewire-play-room/resources/js/playroom-init.js` Vite entry from the consuming Laravel app.
+- The package loads the `vendor/playroom/livewire-adapter/resources/js/playroom-init.js` Vite entry from the consuming Laravel app.
+- The consuming Laravel app must add that same path to the Vite `input` array, otherwise the asset will not exist in `public/build/manifest.json`.
 - This adapter expects the underlying PlayRoom Alpine integration to be available in the host application.
 - Locale and theme changes stay synchronized between the PlayRoom instance and Livewire.
