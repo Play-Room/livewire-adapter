@@ -26,7 +26,7 @@ If you are installing directly from GitHub before the package is published, add 
 Then require the package:
 
 ```bash
-composer require playroom/livewire-adapter:dev-main
+composer require playroom/livewire-adapter:^1.0
 ```
 
 Laravel package discovery will register `PlayRoom\\LivewirePlayRoom\\LivewirePlayRoomServiceProvider` automatically.
