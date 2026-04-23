@@ -10,20 +10,7 @@ Laravel package that exposes PlayRoom as a Livewire 4 component.
 
 ## Installation
 
-If you are installing directly from GitHub before the package is published, add the repository to your application's `composer.json`:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Play-Room/livewire-adapter.git"
-        }
-    ]
-}
-```
-
-Then require the package:
+Require the package with Composer:
 
 ```bash
 composer require playroom/livewire-adapter:^1.0
